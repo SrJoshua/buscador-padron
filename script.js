@@ -83,3 +83,12 @@ async function buscarPersona() {
     }
 
 }
+document
+.getElementById("cedula")
+.addEventListener("keypress",function(e){
+
+    if(e.key==="Enter"){
+        buscarPersona();
+    }
+
+});
