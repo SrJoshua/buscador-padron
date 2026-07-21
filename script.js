@@ -1,94 +1,114 @@
 const boton = document.getElementById("buscar");
 const resultado = document.getElementById("resultado");
+const inputCedula = document.getElementById("cedula");
 
 boton.addEventListener("click", buscarPersona);
 
+inputCedula.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        buscarPersona();
+    }
+});
+
 async function buscarPersona() {
 
-    const cedula = document.getElementById("cedula").value.trim();
+    const cedula = inputCedula.value.trim();
 
     if (cedula === "") {
-        alert("Ingrese una cédula.");
+        resultado.innerHTML = `
+            <div class="error">
+                Ingrese un número de cédula.
+            </div>
+        `;
         return;
     }
 
-    // Lista de todas las planillas
-    const archivos = [
-        "datos/loma_merlo.json",
-        "datos/manuel_dominguez.json"
-    ];
+    resultado.innerHTML = `
+        <div class="card">
+            <h2>🔎 Buscando...</h2>
+        </div>
+    `;
 
-    let personaEncontrada = null;
+    try {
 
-    for (const archivo of archivos) {
+        // Lee la lista de planillas
+        const lista = await fetch("datos/planillas.json");
+        const archivos = await lista.json();
 
-        const respuesta = await fetch(archivo);
-        const personas = await respuesta.json();
+        let personaEncontrada = null;
 
-        personaEncontrada = personas.find(p => p.cedula == cedula);
+        for (const nombreArchivo of archivos) {
 
-        if (personaEncontrada) {
-            break;
+            const respuesta = await fetch(`datos/${nombreArchivo}`);
+            const personas = await respuesta.json();
+
+            personaEncontrada = personas.find(
+                p => String(p.cedula).trim() === cedula
+            );
+
+            if (personaEncontrada) {
+                break;
+            }
         }
 
-    }
+        if (personaEncontrada) {
 
-    if (personaEncontrada) {
+            resultado.innerHTML = `
+                <div class="card">
 
-        resultado.innerHTML = `
-            <div class="card">
-            
-            <h2>✅ Persona encontrada</h2>
-            
-            <table>
-            
-            <tr>
-            <td><strong>Nombre</strong></td>
-            <td>${personaEncontrada.nombre}</td>
-            </tr>
-            
-            <tr>
-            <td><strong>Cédula</strong></td>
-            <td>${personaEncontrada.cedula}</td>
-            </tr>
-            
-            <tr>
-            <td><strong>Mesa</strong></td>
-            <td>${personaEncontrada.mesa}</td>
-            </tr>
-            
-            <tr>
-            <td><strong>Orden</strong></td>
-            <td>${personaEncontrada.orden}</td>
-            </tr>
-            
-            <tr>
-            <td><strong>Local</strong></td>
-            <td>${personaEncontrada.local}</td>
-            </tr>
-            
-            </table>
-            
-            </div>
-        `;
+                    <h2>✅ Persona encontrada</h2>
 
-    } else {
+                    <table>
+
+                        <tr>
+                            <td>Nombre</td>
+                            <td>${personaEncontrada.nombre}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cédula</td>
+                            <td>${personaEncontrada.cedula}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Mesa</td>
+                            <td>${personaEncontrada.mesa}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Orden</td>
+                            <td>${personaEncontrada.orden}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Local</td>
+                            <td>${personaEncontrada.local}</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            `;
+
+        } else {
+
+            resultado.innerHTML = `
+                <div class="error">
+                    ❌ No se encontró ninguna persona con esa cédula.
+                </div>
+            `;
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
 
         resultado.innerHTML = `
             <div class="error">
-                No se encontró ninguna persona.
+                Ocurrió un error al cargar las planillas.
             </div>
         `;
 
     }
-
 }
-document
-.getElementById("cedula")
-.addEventListener("keypress",function(e){
-
-    if(e.key==="Enter"){
-        buscarPersona();
-    }
-
-});
