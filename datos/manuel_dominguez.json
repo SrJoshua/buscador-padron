@@ -1,1 +1,9 @@
-
+[
+    {
+        "cedula":"9999999",
+        "nombre":"Carlos López",
+        "mesa":"10",
+        "orden":"99",
+        "local":"Colegio Manuel Domínguez"
+    }
+]
