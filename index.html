@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Planillas</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <h1>Buscador de Planillas</h1>
+
+        <p>Busque una persona por número de cédula</p>
+
+        <div class="search-box">
+
+            <select id="local">
+                <option value="loma_merlo">Escuela Loma Merlo</option>
+                <option value="manuel_dominguez">Colegio Manuel Domínguez</option>
+            </select>
+
+            <input
+                type="text"
+                id="cedula"
+                placeholder="Ingrese la cédula">
+
+            <button id="buscar">
+                Buscar
+            </button>
+
+        </div>
+
+        <div id="resultado"></div>
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
