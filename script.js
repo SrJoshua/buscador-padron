@@ -37,16 +37,38 @@ async function buscarPersona() {
 
         resultado.innerHTML = `
             <div class="card">
-                <h2>${personaEncontrada.nombre}</h2>
-
-                <p><strong>C.I.</strong> ${personaEncontrada.cedula}</p>
-
-                <p><strong>Mesa:</strong> ${personaEncontrada.mesa}</p>
-
-                <p><strong>Orden:</strong> ${personaEncontrada.orden}</p>
-
-                <p><strong>Local:</strong> ${personaEncontrada.local}</p>
-
+            
+            <h2>✅ Persona encontrada</h2>
+            
+            <table>
+            
+            <tr>
+            <td><strong>Nombre</strong></td>
+            <td>${personaEncontrada.nombre}</td>
+            </tr>
+            
+            <tr>
+            <td><strong>Cédula</strong></td>
+            <td>${personaEncontrada.cedula}</td>
+            </tr>
+            
+            <tr>
+            <td><strong>Mesa</strong></td>
+            <td>${personaEncontrada.mesa}</td>
+            </tr>
+            
+            <tr>
+            <td><strong>Orden</strong></td>
+            <td>${personaEncontrada.orden}</td>
+            </tr>
+            
+            <tr>
+            <td><strong>Local</strong></td>
+            <td>${personaEncontrada.local}</td>
+            </tr>
+            
+            </table>
+            
             </div>
         `;
 
