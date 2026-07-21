@@ -31,24 +31,22 @@ async function buscarPersona() {
 
     try {
 
-        // Lee la lista de planillas
+        // Cargar la lista de planillas
         const lista = await fetch("datos/planillas.json");
         const archivos = await lista.json();
 
         let personaEncontrada = null;
 
-        for (const nombreArchivo of archivos) {
+        for (const archivo of archivos) {
 
-            const respuesta = await fetch(`datos/${nombreArchivo}`);
+            const respuesta = await fetch(`datos/${archivo}`);
             const personas = await respuesta.json();
 
-            personaEncontrada = personas.find(
-                p => String(p.cedula).trim() === cedula
+            personaEncontrada = personas.find(persona =>
+                String(persona.cedula) === cedula
             );
 
-            if (personaEncontrada) {
-                break;
-            }
+            if (personaEncontrada) break;
         }
 
         if (personaEncontrada) {
@@ -61,28 +59,58 @@ async function buscarPersona() {
                     <table>
 
                         <tr>
-                            <td>Nombre</td>
+                            <td><strong>Nombre</strong></td>
                             <td>${personaEncontrada.nombre}</td>
                         </tr>
 
                         <tr>
-                            <td>Cédula</td>
+                            <td><strong>Apellido</strong></td>
+                            <td>${personaEncontrada.apellido}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Cédula</strong></td>
                             <td>${personaEncontrada.cedula}</td>
                         </tr>
 
                         <tr>
-                            <td>Mesa</td>
-                            <td>${personaEncontrada.mesa}</td>
+                            <td><strong>Sexo</strong></td>
+                            <td>${personaEncontrada.sexo}</td>
                         </tr>
 
                         <tr>
-                            <td>Orden</td>
-                            <td>${personaEncontrada.orden}</td>
+                            <td><strong>Fecha de nacimiento</strong></td>
+                            <td>${personaEncontrada.fec_nac}</td>
                         </tr>
 
                         <tr>
-                            <td>Local</td>
-                            <td>${personaEncontrada.local}</td>
+                            <td><strong>Local de votación</strong></td>
+                            <td>${personaEncontrada.des_loc}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Distrito</strong></td>
+                            <td>${personaEncontrada.des_dis}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Departamento</strong></td>
+                            <td>${personaEncontrada.des_dep}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Tipo de inscripción</strong></td>
+                            <td>${personaEncontrada.tipoinscri}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Nacionalidad</strong></td>
+                            <td>${personaEncontrada.nacionalidad}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Discapacidad</strong></td>
+                            <td>${personaEncontrada.discapacidad}</td>
                         </tr>
 
                     </table>
@@ -106,7 +134,7 @@ async function buscarPersona() {
 
         resultado.innerHTML = `
             <div class="error">
-                Ocurrió un error al cargar las planillas.
+                ❌ Error al cargar las planillas.
             </div>
         `;
 
