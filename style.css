@@ -113,3 +113,19 @@ button:hover{
     text-align:center;
 
 }
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+td:first-child{
+    width:35%;
+    font-weight:bold;
+    color:#0066ff;
+}
