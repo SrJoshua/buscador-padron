@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Buscador de Planillas | Mario Pineda</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<header>
+<div class="wrapper">
 
-    <img src="img/banner.jpg" class="banner" alt="Mario Pineda">
+    <header>
 
-</header>
+        <img src="img/banner.jpg" class="banner" alt="Mario Pineda">
 
-<main>
+    </header>
 
     <section class="card">
 
-        <h1>🔎 Buscador de Planillas</h1>
+        <h1>Buscador de Planillas</h1>
 
-        <p>
+        <p class="subtitulo">
             Consulte su local de votación ingresando su número de cédula.
         </p>
 
-        <div class="search-box">
+        <div class="busqueda">
 
             <input
-                type="number"
+                type="text"
+                inputmode="numeric"
                 id="cedula"
                 placeholder="Ingrese su número de cédula">
 
@@ -49,24 +46,15 @@
 
     </section>
 
-</main>
+</div>
 
 <footer>
 
-    <strong>Mario Pineda</strong>
-
-    <span>•</span>
-
-    Concejal del Pueblo
-
-    <span>•</span>
-
-    Lista 7 - Opción 7
+    Mario Pineda • Concejal del Pueblo • Lista 7 - Opción 7
 
 </footer>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
