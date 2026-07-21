@@ -1,1 +1,16 @@
-
+[
+    {
+        "cedula":"1234567",
+        "nombre":"Juan Pérez",
+        "mesa":"15",
+        "orden":"220",
+        "local":"Escuela Loma Merlo"
+    },
+    {
+        "cedula":"7654321",
+        "nombre":"María González",
+        "mesa":"8",
+        "orden":"44",
+        "local":"Escuela Loma Merlo"
+    }
+]
