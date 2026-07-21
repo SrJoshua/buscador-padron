@@ -1,232 +1,229 @@
 *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
 
-background:#f4f7fb;
+    background:#f2f4f7;
 
-color:#222;
+    color:#222;
+
+}
+
+.wrapper{
+
+    max-width:1100px;
+
+    margin:40px auto;
+
+    padding:0 20px;
 
 }
 
 header{
 
-width:100%;
+    overflow:hidden;
 
-background:white;
+    border-radius:22px;
 
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 
 }
 
 .banner{
 
-width:100%;
+    width:100%;
 
-display:block;
-
-}
-
-main{
-
-display:flex;
-
-justify-content:center;
-
-padding:40px 20px;
+    display:block;
 
 }
 
 .card{
 
-width:100%;
-max-width:900px;
+    background:white;
 
-background:white;
+    margin:-35px auto 0;
 
-padding:45px;
+    width:95%;
 
-border-radius:20px;
+    border-radius:22px;
 
-box-shadow:0 15px 35px rgba(0,0,0,.10);
+    padding:45px;
 
-margin-top:-30px;
+    position:relative;
 
-position:relative;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
 
 }
 
 h1{
 
-text-align:center;
+    text-align:center;
 
-font-size:40px;
+    color:#b10000;
 
-color:#0A4DB3;
+    font-size:42px;
 
-margin-bottom:10px;
-
-}
-
-p{
-
-text-align:center;
-
-font-size:18px;
-
-color:#666;
-
-margin-bottom:35px;
+    margin-bottom:10px;
 
 }
 
-.search-box{
+.subtitulo{
 
-display:flex;
+    text-align:center;
 
-gap:15px;
+    color:#666;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+.busqueda{
+
+    display:flex;
+
+    gap:15px;
 
 }
 
 input{
 
-flex:1;
+    flex:1;
 
-padding:18px;
+    padding:18px 22px;
 
-font-size:20px;
+    font-size:20px;
 
-border-radius:12px;
+    border-radius:14px;
 
-border:2px solid #d9d9d9;
+    border:2px solid #ddd;
 
-transition:.3s;
+    transition:.3s;
 
 }
 
 input:focus{
 
-outline:none;
+    outline:none;
 
-border-color:#0A4DB3;
+    border-color:#c40000;
 
-box-shadow:0 0 10px rgba(10,77,179,.2);
+    box-shadow:0 0 12px rgba(196,0,0,.18);
 
 }
 
 button{
 
-width:180px;
+    width:190px;
 
-border:none;
+    border:none;
 
-border-radius:12px;
+    border-radius:14px;
 
-background:linear-gradient(90deg,#0055ff,#0A4DB3);
+    background:linear-gradient(90deg,#d60000,#a50000);
 
-color:white;
+    color:white;
 
-font-size:20px;
+    font-size:20px;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.3s;
+    transition:.3s;
 
 }
 
 button:hover{
 
-transform:translateY(-2px);
+    transform:translateY(-2px);
 
-box-shadow:0 10px 25px rgba(0,0,0,.18);
+    box-shadow:0 12px 25px rgba(196,0,0,.30);
+
+}
+
+button:active{
+
+    transform:scale(.98);
 
 }
 
 .card h2{
 
-margin-bottom:20px;
+    margin-top:35px;
 
-color:#0A4DB3;
+    margin-bottom:20px;
+
+    color:#b10000;
+
+    font-size:28px;
 
 }
 
 table{
 
-width:100%;
+    width:100%;
 
-margin-top:20px;
-
-border-collapse:collapse;
+    border-collapse:collapse;
 
 }
 
 td{
 
-padding:15px;
+    padding:15px;
 
-border-bottom:1px solid #ececec;
+    border-bottom:1px solid #ececec;
 
-font-size:17px;
+    font-size:17px;
 
 }
 
 td:first-child{
 
-font-weight:bold;
+    width:35%;
 
-color:#0A4DB3;
+    font-weight:bold;
 
-width:35%;
+    color:#b10000;
 
 }
 
 .error{
 
-margin-top:25px;
+    margin-top:25px;
 
-padding:18px;
+    padding:18px;
 
-background:#ffe6e6;
+    border-radius:12px;
 
-border-radius:12px;
+    background:#ffe4e4;
 
-color:#c40000;
+    color:#b10000;
 
-font-weight:bold;
+    font-weight:bold;
 
-text-align:center;
+    text-align:center;
 
 }
 
 footer{
 
-margin-top:60px;
+    margin-top:45px;
 
-padding:25px;
+    background:#b10000;
 
-text-align:center;
+    color:white;
 
-background:#0A4DB3;
+    text-align:center;
 
-color:white;
+    padding:20px;
 
-font-size:16px;
-
-}
-
-footer span{
-
-margin:0 10px;
-
-opacity:.5;
+    font-size:15px;
 
 }
 
@@ -234,49 +231,55 @@ opacity:.5;
 
 .card{
 
-padding:25px;
+    padding:25px;
 
-margin-top:-15px;
+    width:100%;
 
 }
 
-.search-box{
+.busqueda{
 
-flex-direction:column;
+    flex-direction:column;
 
 }
 
 button{
 
-width:100%;
+    width:100%;
 
 }
 
 h1{
 
-font-size:30px;
+    font-size:30px;
+
+}
+
+.subtitulo{
+
+    font-size:16px;
 
 }
 
 td{
 
-display:block;
+    display:block;
 
-width:100%;
+    width:100%;
 
-padding:8px 0;
+    border:none;
 
-border:none;
+    padding:8px 0;
 
 }
 
 tr{
 
-display:block;
+    display:block;
 
-padding:12px 0;
+    border-bottom:1px solid #ddd;
 
-border-bottom:1px solid #ddd;
+    padding:10px 0;
 
 }
 
