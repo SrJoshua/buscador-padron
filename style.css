@@ -1,1 +1,38 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    margin:0;
+}
 
+.container{
+    width:90%;
+    max-width:700px;
+    margin:50px auto;
+    text-align:center;
+}
+
+.logo{
+    width:120px;
+    margin-bottom:20px;
+}
+
+.search-box{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+select,
+button{
+    padding:15px;
+    font-size:16px;
+}
+
+button{
+    cursor:pointer;
+}
+
+#resultado{
+    margin-top:30px;
+}
