@@ -7,7 +7,7 @@
 
 body{
 
-    background:#f4f5f7;
+    background:#f2f4f7;
 
     color:#222;
 
@@ -15,22 +15,21 @@ body{
 
 .wrapper{
 
-    width:100%;
     max-width:1100px;
 
-    margin:25px auto;
+    margin:40px auto;
 
-    padding:0 15px;
+    padding:0 20px;
 
 }
 
-/*==========================
-    BANNER
-===========================*/
+header{
 
-.hero{
+    overflow:hidden;
 
-    margin-bottom:18px;
+    border-radius:22px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 
 }
 
@@ -40,25 +39,23 @@ body{
 
     display:block;
 
-    border-radius:18px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
-
 }
-
-/*==========================
-    TARJETA
-===========================*/
 
 .card{
 
-    background:#fff;
+    background:white;
+
+    margin:-35px auto 0;
+
+    width:95%;
 
     border-radius:22px;
 
-    padding:40px;
+    padding:45px;
 
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    position:relative;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
 
 }
 
@@ -66,11 +63,11 @@ h1{
 
     text-align:center;
 
-    color:#b30000;
+    color:#b10000;
 
     font-size:42px;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 
 }
 
@@ -86,10 +83,6 @@ h1{
 
 }
 
-/*==========================
- BUSCADOR
-===========================*/
-
 .busqueda{
 
     display:flex;
@@ -102,15 +95,13 @@ input{
 
     flex:1;
 
-    height:65px;
+    padding:18px 22px;
 
-    padding:0 22px;
+    font-size:20px;
 
-    font-size:22px;
+    border-radius:14px;
 
-    border-radius:16px;
-
-    border:2px solid #d9d9d9;
+    border:2px solid #ddd;
 
     transition:.3s;
 
@@ -120,27 +111,25 @@ input:focus{
 
     outline:none;
 
-    border-color:#c00000;
+    border-color:#c40000;
 
-    box-shadow:0 0 12px rgba(192,0,0,.20);
+    box-shadow:0 0 12px rgba(196,0,0,.18);
 
 }
 
 button{
 
-    width:210px;
-
-    height:65px;
+    width:190px;
 
     border:none;
 
-    border-radius:16px;
+    border-radius:14px;
 
-    background:linear-gradient(90deg,#d60000,#980000);
+    background:linear-gradient(90deg,#d60000,#a50000);
 
     color:white;
 
-    font-size:24px;
+    font-size:20px;
 
     font-weight:bold;
 
@@ -154,7 +143,7 @@ button:hover{
 
     transform:translateY(-2px);
 
-    box-shadow:0 12px 25px rgba(180,0,0,.35);
+    box-shadow:0 12px 25px rgba(196,0,0,.30);
 
 }
 
@@ -164,17 +153,15 @@ button:active{
 
 }
 
-/*==========================
- RESULTADO
-===========================*/
-
 .card h2{
-
-    color:#b30000;
 
     margin-top:35px;
 
     margin-bottom:20px;
+
+    color:#b10000;
+
+    font-size:28px;
 
 }
 
@@ -188,7 +175,7 @@ table{
 
 td{
 
-    padding:16px;
+    padding:15px;
 
     border-bottom:1px solid #ececec;
 
@@ -200,23 +187,23 @@ td:first-child{
 
     width:35%;
 
-    color:#b30000;
-
     font-weight:bold;
+
+    color:#b10000;
 
 }
 
 .error{
 
-    margin-top:20px;
-
-    background:#ffe5e5;
-
-    color:#b30000;
+    margin-top:25px;
 
     padding:18px;
 
-    border-radius:14px;
+    border-radius:12px;
+
+    background:#ffe4e4;
+
+    color:#b10000;
 
     font-weight:bold;
 
@@ -224,47 +211,41 @@ td:first-child{
 
 }
 
-/*==========================
- FOOTER
-===========================*/
-
 footer{
 
-    margin-top:35px;
+    margin-top:45px;
 
-    background:#b30000;
+    background:#b10000;
 
     color:white;
 
     text-align:center;
 
-    padding:22px;
+    padding:20px;
 
-    font-size:16px;
+    font-size:15px;
 
 }
-
-/*==========================
- CELULAR
-===========================*/
 
 @media(max-width:768px){
-
-.wrapper{
-
-    margin:15px auto;
-
-}
-
-.banner{
-
-    border-radius:14px;
-
-}
 
 .card{
 
     padding:25px;
+
+    width:100%;
+
+}
+
+.busqueda{
+
+    flex-direction:column;
+
+}
+
+button{
+
+    width:100%;
 
 }
 
@@ -277,34 +258,6 @@ h1{
 .subtitulo{
 
     font-size:16px;
-
-    margin-bottom:25px;
-
-}
-
-.busqueda{
-
-    flex-direction:column;
-
-}
-
-input{
-
-    width:100%;
-
-    height:60px;
-
-    font-size:18px;
-
-}
-
-button{
-
-    width:100%;
-
-    height:60px;
-
-    font-size:22px;
 
 }
 
@@ -324,15 +277,9 @@ tr{
 
     display:block;
 
-    padding:12px 0;
-
     border-bottom:1px solid #ddd;
 
-}
-
-footer{
-
-    font-size:14px;
+    padding:10px 0;
 
 }
 
