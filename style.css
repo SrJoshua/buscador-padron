@@ -523,22 +523,3 @@ canvas{
     background:#f2f2f2;
 
 }
-.grafico-scroll{
-
-    max-height:400px;
-
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
-}
-
-@media(max-width:768px){
-
-    .grafico-scroll{
-
-        max-height:280px;
-
-    }
-
-}
