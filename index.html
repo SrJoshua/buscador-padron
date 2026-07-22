@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Padrón 2026 | Mario Pineda</title>
+
+    <title>Padrón Electoral 2026 | Mario Pineda</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="wrapper">
 
-    <header>
+    <!-- Banner -->
 
-        <img src="img/banner.jpg" class="banner" alt="Mario Pineda">
+    <header class="hero">
+
+        <img src="img/banner.jpg"
+             class="banner"
+             alt="Mario Pineda">
 
     </header>
 
+    <!-- Buscador -->
+
     <section class="card">
 
-        <h1>Padrón 2026 | Mario Pineda</h1>
+        <div class="titulo">
 
-        <p class="subtitulo">
-            Consulte su local de votación ingresando su número de cédula.
-        </p>
+            <h1>Padrón Electoral 2026</h1>
+
+            <p class="subtitulo">
+
+                Consulte su local de votación ingresando su número de cédula.
+
+            </p>
+
+        </div>
 
         <div class="busqueda">
 
@@ -46,15 +62,254 @@
 
     </section>
 
+    <!-- Dashboard -->
+
+    <section class="dashboard">
+
+        <h2>
+
+            📊 Estadísticas Generales
+
+        </h2>
+
+        <div class="cards">
+
+            <div class="stat-card">
+
+                <div class="icono">
+
+                    👥
+
+                </div>
+
+                <h3>Total de Personas</h3>
+
+                <span id="totalPersonas">
+
+                    Cargando...
+
+                </span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="icono">
+
+                    🎯
+
+                </div>
+
+                <h3>Objetivo</h3>
+
+                <span>
+
+                    7.777
+
+                </span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="icono">
+
+                    🏫
+
+                </div>
+
+                <h3>Locales</h3>
+
+                <span id="cantidadLocales">
+
+                    0
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <!-- Tabla -->
+
+            <div class="panel">
+
+                <h3>
+
+                    Distribución por Local
+
+                </h3>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Local</th>
+
+                            <th>Personas</th>
+
+                            <th>%</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaLocales">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Barras -->
+
+            <div class="panel">
+
+                <h3>
+
+                    Personas por Local
+
+                </h3>
+
+                <canvas id="graficoLocales">
+
+                </canvas>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <!-- Circular -->
+
+            <div class="panel">
+
+                <h3>
+
+                    Participación por Local
+
+                </h3>
+
+                <canvas id="graficoPie">
+
+                </canvas>
+
+            </div>
+
+            <!-- Información -->
+
+            <div class="panel">
+
+                <h3>
+
+                    Información General
+
+                </h3>
+
+                <div class="info">
+
+                    <div class="info-item">
+
+                        <strong>
+
+                            Sistema
+
+                        </strong>
+
+                        <span>
+
+                            Buscador de Planillas
+
+                        </span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <strong>
+
+                            Año
+
+                        </strong>
+
+                        <span>
+
+                            2026
+
+                        </span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <strong>
+
+                            Actualización
+
+                        </strong>
+
+                        <span id="fechaActualizacion">
+
+                            Automática
+
+                        </span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <strong>
+
+                            Estado
+
+                        </strong>
+
+                        <span>
+
+                            ✅ Operativo
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
 
 <footer>
 
-    Mario Pineda • Concejal del Pueblo • Lista 1 - Opción 7
+    <strong>
+
+        Mario Pineda
+
+    </strong>
+
+    • Concejal del Pueblo •
+
+    Lista 1 - Opción 7
 
 </footer>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Script principal -->
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
