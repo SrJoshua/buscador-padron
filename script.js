@@ -269,24 +269,26 @@ async function cargarDashboard() {
 
         // Gráfico circular
 
+        // Gráfico circular
+
         new Chart(
-
+        
             document.getElementById("graficoPie"),
-
+        
             {
-
+        
                 type: "pie",
-
+        
                 data: {
-
+        
                     labels: labels,
-
+        
                     datasets: [{
-
+        
                         data: datos,
-
+        
                         backgroundColor: [
-
+        
                             "#b10000",
                             "#d62828",
                             "#ef233c",
@@ -299,21 +301,55 @@ async function cargarDashboard() {
                             "#dc2f02",
                             "#e85d04",
                             "#f48c06"
-
+        
                         ]
-
+        
                     }]
-
+        
                 },
-
+        
                 options: {
-
-                    responsive: true
-
+        
+                    responsive: true,
+        
+                    plugins: {
+        
+                        legend: {
+        
+                            display: window.innerWidth > 768,
+        
+                            position: "top"
+        
+                        },
+        
+                        tooltip: {
+        
+                            enabled: true,
+        
+                            callbacks: {
+        
+                                label: function(context){
+        
+                                    const total = context.dataset.data.reduce((a,b)=>a+b,0);
+        
+                                    const valor = context.raw;
+        
+                                    const porcentaje = ((valor / total) * 100).toFixed(2);
+        
+                                    return `${context.label}: ${valor.toLocaleString("es-PY")} personas (${porcentaje}%)`;
+        
+                                }
+        
+                            }
+        
+                        }
+        
+                    }
+        
                 }
-
+        
             }
-
+        
         );
 
     }
