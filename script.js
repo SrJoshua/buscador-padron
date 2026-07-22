@@ -9,7 +9,20 @@ inputCedula.addEventListener("keypress", function (e) {
         buscarPersona();
     }
 });
+function formatearFecha(fecha) {
 
+    if (!fecha) return "";
+
+    const partes = fecha.split("/");
+
+    if (partes.length !== 3) return fecha;
+
+    const mes = partes[0].padStart(2, "0");
+    const dia = partes[1].padStart(2, "0");
+    const anio = partes[2];
+
+    return `${dia}/${mes}/${anio}`;
+}
 async function buscarPersona() {
 
     const cedula = inputCedula.value.trim();
@@ -80,7 +93,7 @@ async function buscarPersona() {
 
                         <tr>
                             <td><strong>Fecha de nacimiento</strong></td>
-                            <td>${personaEncontrada.fec_nac}</td>
+                            <td>${formatearFecha(personaEncontrada.fec_nac)}</td>
                         </tr>
 
                         <tr>
