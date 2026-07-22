@@ -140,3 +140,188 @@ async function buscarPersona() {
 
     }
 }
+// ==============================
+// DASHBOARD
+// ==============================
+
+cargarDashboard();
+
+async function cargarDashboard() {
+
+    try {
+
+        const lista = await fetch("datos/planillas.json");
+        const archivos = await lista.json();
+
+        let total = 0;
+
+        const estadisticas = {};
+
+        for (const archivo of archivos) {
+
+            const respuesta = await fetch(`datos/${archivo}`);
+            const personas = await respuesta.json();
+
+            total += personas.length;
+
+            personas.forEach(persona => {
+
+                const local = persona.des_loc || "Sin local";
+
+                if (!estadisticas[local]) {
+                    estadisticas[local] = 0;
+                }
+
+                estadisticas[local]++;
+
+            });
+
+        }
+
+        document.getElementById("totalPersonas").textContent =
+            total.toLocaleString("es-PY");
+
+        document.getElementById("cantidadLocales").textContent =
+            Object.keys(estadisticas).length;
+
+        const tbody = document.getElementById("tablaLocales");
+
+        tbody.innerHTML = "";
+
+        const labels = [];
+        const datos = [];
+
+        Object.entries(estadisticas)
+            .sort((a, b) => b[1] - a[1])
+            .forEach(([local, cantidad]) => {
+
+                labels.push(local);
+                datos.push(cantidad);
+
+                const porcentaje =
+                    ((cantidad / total) * 100).toFixed(2);
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${local}</td>
+                        <td>${cantidad.toLocaleString("es-PY")}</td>
+                        <td>${porcentaje}%</td>
+                    </tr>
+                `;
+
+            });
+
+        // Gráfico de barras
+
+        new Chart(
+
+            document.getElementById("graficoLocales"),
+
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [{
+
+                        label: "Personas",
+
+                        data: datos,
+
+                        backgroundColor: "#b10000"
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    },
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero: true
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        );
+
+        // Gráfico circular
+
+        new Chart(
+
+            document.getElementById("graficoPie"),
+
+            {
+
+                type: "pie",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [{
+
+                        data: datos,
+
+                        backgroundColor: [
+
+                            "#b10000",
+                            "#d62828",
+                            "#ef233c",
+                            "#ff595e",
+                            "#ff7b7b",
+                            "#ff9f9f",
+                            "#c1121f",
+                            "#780000",
+                            "#9d0208",
+                            "#dc2f02",
+                            "#e85d04",
+                            "#f48c06"
+
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true
+
+                }
+
+            }
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error("Error cargando estadísticas:", error);
+
+    }
+
+}
